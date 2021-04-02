@@ -34,16 +34,18 @@ public class LibraryApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		Author a1 = new Author(null, "John", 37);
-		Book b1 = new Book(null, "Roses", 2010, 20.5);
+		Author a2 = new Author(null, "Lara", 25);
+		
 		Genre g1 = new Genre(null, "Action");
+		Genre g2 = new Genre(null, "Drama");
 		
-		a1.setBooks(Arrays.asList(b1));
-		b1.setGenre(g1);
-		b1.setAuthor(a1);
+		Book b1 = new Book(null, "Roses", 2010, 20.5, a1, g1);
+		Book b2 = new Book(null, "Red", 2020, 15.6, a2, g2);
 		
-		authorRepository.save(a1);
-		genreRepository.save(g1);
-		bookRepository.save(b1);
+		
+		authorRepository.saveAll(Arrays.asList(a1, a2));
+		genreRepository.saveAll(Arrays.asList(g1, g2));
+		bookRepository.saveAll(Arrays.asList(b1, b2));
 		
 	}
 

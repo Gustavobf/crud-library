@@ -22,5 +22,10 @@ public class GenreResource {
 		Genre genre = genreService.find(id);
 		return ResponseEntity.ok().body(genre);
 	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public void delete(@PathVariable Integer id) {
+		genreService.delete(id);
+	}
 
 }

@@ -20,5 +20,9 @@ public class BookService {
 		return book.orElseThrow(
 				() -> new ObjectNotFoundException("Object not found! Id: " + id + ", Type: " + Book.class.getName()));
 	}
+	
+	public void delete(Integer id) {
+		repo.deleteById(id);
+	}
 
 }

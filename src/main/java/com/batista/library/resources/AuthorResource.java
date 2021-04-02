@@ -22,5 +22,10 @@ public class AuthorResource {
 		Author author = authorService.find(id);
 		return ResponseEntity.ok().body(author);
 	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public void delete(@PathVariable Integer id) {
+		authorService.delete(id);
+	}
 
 }

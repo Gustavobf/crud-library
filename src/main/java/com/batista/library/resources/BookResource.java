@@ -22,5 +22,10 @@ public class BookResource {
 		Book book = bookService.find(id);
 		return ResponseEntity.ok().body(book);
 	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public void delete(@PathVariable Integer id) {
+		bookService.delete(id);
+	}
 
 }

@@ -21,5 +21,9 @@ public class AuthorService {
 		return author.orElseThrow(
 				() -> new ObjectNotFoundException("Object not found! Id: " + id + ", Type: " + Book.class.getName()));
 	}
+	
+	public void delete(Integer id) {
+		repo.deleteById(id);
+	}
 
 }
