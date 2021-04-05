@@ -1,5 +1,6 @@
 package com.batista.library.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,17 @@ public class GenreService {
 	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
-
+	
+	public void create(Genre genre) {
+		repo.save(genre);
+	}
+	
+	public List<Genre> findAll(){
+		return repo.findAll();
+	}
+	
+	public void update(Genre genre) {
+		repo.save(genre);
+	}
+	
 }

@@ -1,5 +1,6 @@
 package com.batista.library.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,21 @@ public class AuthorService {
 		return author.orElseThrow(
 				() -> new ObjectNotFoundException("Object not found! Id: " + id + ", Type: " + Book.class.getName()));
 	}
-	
+
 	public void delete(Integer id) {
 		repo.deleteById(id);
+	}
+
+	public void create(Author author) {
+		repo.save(author);
+	}
+
+	public List<Author> findAll() {
+		return repo.findAll();
+	}
+
+	public void update(Author author) {
+		repo.save(author);
 	}
 
 }

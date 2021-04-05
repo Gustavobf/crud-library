@@ -1,5 +1,6 @@
 package com.batista.library.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,18 @@ public class BookService {
 	
 	public void delete(Integer id) {
 		repo.deleteById(id);
+	}
+	
+	public void create(Book book) {
+		repo.save(book);
+	}
+	
+	public List<Book> findAll(){
+		return repo.findAll();
+	}
+	
+	public void update(Book book) {
+		repo.save(book);
 	}
 
 }
